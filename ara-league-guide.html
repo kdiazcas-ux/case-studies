@@ -103,32 +103,37 @@
     color: var(--ara-accent);
   }
 
-  /* Section headings */
+  /* Section headings with back link */
+  .ara-guide__section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 48px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ara-accent);
+  }
+
   .ara-guide__section {
     font-size: 1.35rem;
     font-weight: 700;
     color: #fff;
-    margin: 48px 0 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--ara-accent);
-    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: inline;
   }
 
-  /* Back to top link */
   .ara-guide__back-top {
-    display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--ara-text-muted);
-    margin-top: 32px;
-    padding: 6px 12px;
-    border: 1px solid var(--ara-card-border);
-    border-radius: 6px;
-    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.2s;
   }
 
   .ara-guide__back-top:hover {
     color: var(--ara-accent);
-    border-color: var(--ara-accent);
     text-decoration: none;
   }
 
@@ -265,7 +270,9 @@
   <!-- ===================== -->
   <!-- SIGN UP               -->
   <!-- ===================== -->
-  <h2 id="sign-up" class="ara-guide__section">How to Sign Up for the League</h2>
+  <div class="ara-guide__section-header">
+    <h2 id="sign-up" class="ara-guide__section">How to Sign Up for the League</h2>
+  </div>
 
   <div class="ara-guide__tip">
     <div class="ara-guide__tip-label">Tip — How to Sign Up</div>
@@ -282,7 +289,10 @@
   <!-- ===================== -->
   <!-- JOIN LEAGUE            -->
   <!-- ===================== -->
-  <h2 id="join-league" class="ara-guide__section">How to Join the League When Invited</h2>
+  <div class="ara-guide__section-header">
+    <h2 id="join-league" class="ara-guide__section">How to Join the League When Invited</h2>
+    <a href="#ara-toc" class="ara-guide__back-top">↑ Table of Contents</a>
+  </div>
 
   <div class="ara-guide__step">
     <p class="ara-guide__step-text"><strong>1.</strong> <em>Invites to the league will start before Pre Qualifying week starts. When you are invited, you will get a notification.</em> To accept, navigate to your iRacing UI.</p>
@@ -326,12 +336,13 @@
     <img width="560" alt="ARA League season page" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/874961ea-a059-4e4a-87ea-e66a99553cf3/user_cropped_screenshot_f7f963ad747240fe807408b8fe6e996e_text_export.jpeg" />
   </div>
 
-  <a href="#ara-toc" class="ara-guide__back-top">Back to Table of Contents</a>
-
   <!-- ===================== -->
   <!-- PRE QUALIFYING         -->
   <!-- ===================== -->
-  <h2 id="prequalify" class="ara-guide__section">How to Join a Pre Qualifying Session</h2>
+  <div class="ara-guide__section-header">
+    <h2 id="prequalify" class="ara-guide__section">How to Join a Pre Qualifying Session</h2>
+    <a href="#ara-toc" class="ara-guide__back-top">↑ Table of Contents</a>
+  </div>
 
   <div class="ara-guide__step">
     <p class="ara-guide__step-text"><strong>7.</strong> Open the ARA League Season Page under My Leagues.</p>
@@ -388,12 +399,13 @@
     </ul>
   </div>
 
-  <a href="#ara-toc" class="ara-guide__back-top">Back to Table of Contents</a>
-
   <!-- ===================== -->
   <!-- SPLIT RACE             -->
   <!-- ===================== -->
-  <h2 id="split-race" class="ara-guide__section">How to Join Your Split Race</h2>
+  <div class="ara-guide__section-header">
+    <h2 id="split-race" class="ara-guide__section">How to Join Your Split Race</h2>
+    <a href="#ara-toc" class="ara-guide__back-top">↑ Table of Contents</a>
+  </div>
 
   <div class="ara-guide__step">
     <p class="ara-guide__step-text"><strong>13.</strong> Your split will be announced to you. <strong>If you forget what split you are in</strong>, go to Discord and click on your own name on our server.</p>
@@ -467,6 +479,5 @@
     <p>Joining the wrong split may cause another driver not to be able to participate because your entry removed that slot for them.</p>
   </div>
 
-  <a href="#ara-toc" class="ara-guide__back-top">Back to Table of Contents</a>
 
 </div>
