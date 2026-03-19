@@ -1,0 +1,466 @@
+<style>
+  .ara-guide {
+    --ara-bg: transparent;
+    --ara-card: rgba(255, 255, 255, 0.06);
+    --ara-card-border: rgba(255, 255, 255, 0.1);
+    --ara-text: #e8e6e3;
+    --ara-text-muted: #9a958f;
+    --ara-accent: #c8a86e;
+    --ara-accent-hover: #dfc08a;
+    --ara-tip-bg: rgba(200, 168, 110, 0.08);
+    --ara-tip-border: rgba(200, 168, 110, 0.3);
+    --ara-warn-bg: rgba(220, 80, 60, 0.08);
+    --ara-warn-border: rgba(220, 80, 60, 0.4);
+    --ara-warn-text: #f0a09a;
+    --ara-radius: 10px;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ara-text);
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background: var(--ara-bg);
+  }
+
+  .ara-guide *, .ara-guide *::before, .ara-guide *::after {
+    box-sizing: border-box;
+  }
+
+  .ara-guide a {
+    color: var(--ara-accent);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .ara-guide a:hover {
+    color: var(--ara-accent-hover);
+    text-decoration: underline;
+  }
+
+  .ara-guide img {
+    max-width: 100%;
+    border-radius: var(--ara-radius);
+    border: 1px solid var(--ara-card-border);
+    display: block;
+  }
+
+  /* Header */
+  .ara-guide__header {
+    text-align: center;
+    padding: 40px 0 20px;
+  }
+
+  .ara-guide__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 12px;
+    line-height: 1.2;
+  }
+
+  .ara-guide__byline {
+    font-size: 0.85rem;
+    color: var(--ara-text-muted);
+    margin: 0 0 20px;
+  }
+
+  .ara-guide__byline a {
+    color: var(--ara-text-muted);
+    text-decoration: underline;
+  }
+
+  .ara-guide__desc {
+    font-size: 1rem;
+    color: var(--ara-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Quick links */
+  .ara-guide__quicklinks {
+    background: var(--ara-card);
+    border: 1px solid var(--ara-card-border);
+    border-radius: var(--ara-radius);
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+
+  .ara-guide__quicklinks-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ara-text-muted);
+    margin: 0 0 10px;
+  }
+
+  .ara-guide__quicklinks ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+
+  .ara-guide__quicklinks li::before {
+    content: "→ ";
+    color: var(--ara-accent);
+  }
+
+  .ara-guide__quicklinks li {
+    font-size: 0.9rem;
+  }
+
+  /* Section headings */
+  .ara-guide__section {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 48px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ara-accent);
+    display: inline-block;
+  }
+
+  /* Steps */
+  .ara-guide__step {
+    margin: 24px 0;
+  }
+
+  .ara-guide__step-text {
+    font-size: 1rem;
+    margin: 0 0 6px;
+    line-height: 1.7;
+  }
+
+  .ara-guide__step-text em {
+    color: var(--ara-text-muted);
+    font-style: italic;
+  }
+
+  .ara-guide__step-text strong {
+    color: #fff;
+  }
+
+  /* Screenshots */
+  .ara-guide__screenshot {
+    margin: 16px 0 28px;
+  }
+
+  /* Tip boxes */
+  .ara-guide__tip {
+    background: var(--ara-tip-bg);
+    border: 1px solid var(--ara-tip-border);
+    border-left: 3px solid var(--ara-accent);
+    border-radius: var(--ara-radius);
+    padding: 18px 20px;
+    margin: 24px 0;
+  }
+
+  .ara-guide__tip-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ara-accent);
+    margin-bottom: 8px;
+  }
+
+  .ara-guide__tip p,
+  .ara-guide__tip ol,
+  .ara-guide__tip ul {
+    font-size: 0.95rem;
+    margin: 6px 0;
+    color: var(--ara-text);
+  }
+
+  .ara-guide__tip ol, .ara-guide__tip ul {
+    padding-left: 20px;
+  }
+
+  .ara-guide__tip li {
+    margin: 4px 0;
+  }
+
+  /* Alert boxes */
+  .ara-guide__alert {
+    background: var(--ara-warn-bg);
+    border: 1px solid var(--ara-warn-border);
+    border-left: 3px solid #dc503c;
+    border-radius: var(--ara-radius);
+    padding: 18px 20px;
+    margin: 24px 0;
+  }
+
+  .ara-guide__alert-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #dc503c;
+    margin-bottom: 8px;
+  }
+
+  .ara-guide__alert p,
+  .ara-guide__alert ul {
+    font-size: 0.95rem;
+    margin: 6px 0;
+    color: var(--ara-warn-text);
+  }
+
+  .ara-guide__alert ul {
+    padding-left: 20px;
+  }
+
+  .ara-guide__alert li {
+    margin: 4px 0;
+  }
+
+  .ara-guide__alert li ul {
+    margin-top: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .ara-guide {
+      padding: 0 14px;
+    }
+
+    .ara-guide__quicklinks ul {
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ara-guide__section {
+      font-size: 1.15rem;
+    }
+  }
+</style>
+
+<div class="ara-guide">
+
+  <!-- Header -->
+  <header class="ara-guide__header">
+    <h1 class="ara-guide__title">ARA League — Complete Guide</h1>
+    <p class="ara-guide__byline">
+      <a href="https://scribehow.com/shared/ARA_League_Complete_Guide___tsrAtv4QnGEk7luxFG4-w" target="_blank">Made by Kyle Diaz with Scribe</a>
+    </p>
+    <p class="ara-guide__desc">Step-by-step instructions for accepting league invitations, registering for sessions, finding your split, and joining race day — everything you need to get on track in the ARA League.</p>
+  </header>
+
+  <!-- Quick Links -->
+  <nav class="ara-guide__quicklinks">
+    <p class="ara-guide__quicklinks-title">Jump to</p>
+    <ul>
+      <li><a href="#sign-up">How to Sign Up</a></li>
+      <li><a href="#join-league">Join the League</a></li>
+      <li><a href="#prequalify">Pre Qualifying Sessions</a></li>
+      <li><a href="#split-race">Join your Split Race</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== -->
+  <!-- SIGN UP               -->
+  <!-- ===================== -->
+  <h2 id="sign-up" class="ara-guide__section">How to Sign Up for the League</h2>
+
+  <div class="ara-guide__tip">
+    <div class="ara-guide__tip-label">Tip — How to Sign Up</div>
+    <p>Sign-ups will be announced via email and Discord. Keep an eye out — different leagues may have different registration methods. Full instructions will always be provided.</p>
+    <p><a href="https://discord.com/channels/800499066445758487/1154459124638171197">Discord Announcements</a></p>
+    <p><strong>Before you sign up, make sure you've done these two things:</strong></p>
+    <ol>
+      <li><strong>Link your Discord</strong> from the Academy website</li>
+      <li><strong>Connect your iRacing</strong> from the Academy website</li>
+    </ol>
+    <p>Both can be done here: <a href="https://almeidaracingacademy.com/account">almeidaracingacademy.com/account</a></p>
+  </div>
+
+  <!-- ===================== -->
+  <!-- JOIN LEAGUE            -->
+  <!-- ===================== -->
+  <h2 id="join-league" class="ara-guide__section">How to Join the League When Invited</h2>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>1.</strong> <em>Invites to the league will start before Pre Qualifying week starts. When you are invited, you will get a notification.</em> To accept, navigate to your iRacing UI.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="iRacing UI home screen" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/4f1d63f3-bb25-4fd1-ab14-72a72e14b3b1/user_cropped_screenshot_9cad0b78c3474ee5a4e7fb3a4573ecf9_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>2.</strong> Click your notifications icon.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="Notifications icon in iRacing" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/2d0c6f47-cf34-4f9f-a0b6-5e72572300ed/user_cropped_screenshot_d4b6d04a1a1141b0a364a7c8644a8cda_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>3.</strong> Navigate to League Invitations and Accept the League Invite.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="League invitation screen" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/c3042c01-3cdd-4e42-9a0d-f387f522dbe1/ascreenshot_58e268d6853049d3af7e10c7ca178ee2_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>4.</strong> After accepting the invite, click "Close".</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="Close button after accepting invite" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/7e52df88-166f-40e6-b1b9-544d7fd16bb9/ascreenshot_f41d150bbdc049e885d9d80ebe1ec24c_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>5.</strong> <strong>Refresh your page and clear your filters</strong> if you do not see the new League populate in your "My League" tab under Leagues.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="My Leagues tab with filters" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/ac63bc5b-0178-4318-a507-65baa47e8d52/user_cropped_screenshot_fc287fb43d2e4f96826b50b5a7ace05e_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>6.</strong> You should see the ARA League - Season page populate now. If you do not, contact us here: <a href="https://almeidaracingacademy.com/support">almeidaracingacademy.com/support</a></p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="ARA League season page" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/874961ea-a059-4e4a-87ea-e66a99553cf3/user_cropped_screenshot_f7f963ad747240fe807408b8fe6e996e_text_export.jpeg" />
+  </div>
+
+  <!-- ===================== -->
+  <!-- PRE QUALIFYING         -->
+  <!-- ===================== -->
+  <h2 id="prequalify" class="ara-guide__section">How to Join a Pre Qualifying Session</h2>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>7.</strong> Open the ARA League Season Page under My Leagues.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="Opening the ARA League season page" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/c53ca49b-b08c-49a3-9f89-f7c823504401/File_cdecf97e2f284209bf6a41784dc38daf_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>8.</strong> Click "Sessions".</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="Sessions tab" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/8a5d90bc-563d-49da-a1b3-d550811dff83/ascreenshot_678ec05685234e91a7e9a780251b9b48_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>9.</strong> This is how it looks when there are no sessions available.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="No sessions available" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/6d34e549-32a6-4bf2-a05d-1ffc70f5cddc/user_cropped_screenshot_4247b6ba4a2643e48081b8944feaf16e_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>10.</strong> An active registrable session will show like this, with a countdown timer.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="Active session with countdown timer" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/35c49e80-fae5-46f8-867f-25374e4abeb5/user_cropped_screenshot_e552aca06b55485eb99dc163d734965b_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>11.</strong> Click View Session.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="View Session button" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/0df0510a-b10b-4655-937a-71a55067ea3c/user_cropped_screenshot_6ec39b9612914bfb8550ca9155d32d57_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>12.</strong> Click Register. Then Join Session when it's ready to start.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="Register and Join Session buttons" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/72f1fa2d-10a0-4719-a3cd-c8cf787947ed/user_cropped_screenshot_30000948556a465abbddebbc8e3a0777_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__alert">
+    <div class="ara-guide__alert-label">Important — Pre Qualifying Rules</div>
+    <ul>
+      <li>You must register before the Qualifying session starts.</li>
+      <li>4 Pre-Q sessions will run every day.</li>
+      <li>You must complete 3 consecutive, clean timed laps.</li>
+      <li>You may attempt as many 3-lap runs as you'd like in each session.</li>
+      <li>You may join as many sessions as you want during the week.</li>
+      <li>Your fastest valid 3-lap run across all sessions will count toward ranking and split placement.</li>
+      <li>Laps must happen during the <strong>Qualifying</strong> portion of the event — laps during "Practice" won't count.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== -->
+  <!-- SPLIT RACE             -->
+  <!-- ===================== -->
+  <h2 id="split-race" class="ara-guide__section">How to Join Your Split Race</h2>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>13.</strong> Your split will be announced to you. <strong>If you forget what split you are in</strong>, go to Discord and click on your own name on our server.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="Discord profile on ARA server" src="https://colony-recorder.s3.amazonaws.com/files/2026-03-14/53dbefe2-70ec-44a5-ab34-ac18cabfaf47/screenshot_5a5fdf7650834f3ebee885c54fbeaef8_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>14.</strong> Click the "View All Roles" button (this may show any + number).</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="View All Roles button" src="https://colony-recorder.s3.amazonaws.com/files/2026-03-14/03bb7981-d8f7-40a0-83b2-72bbd7ea4a27/screenshot_de73312e547f44c1b38b374768423296_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>15.</strong> Your roles under your name will show you your Series (Club or Premier), and your Split.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="Discord roles showing Series and Split" src="https://colony-recorder.s3.amazonaws.com/files/2026-03-14/142e95d3-14fa-4af6-a67d-9c541d473056/screenshot_e467e72567c74642b2b6af598bf7afbc_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>16.</strong> Go to iRacing and click Leagues.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="iRacing Leagues button" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/9c893344-0b7e-4c5f-b15d-f68771915571/user_cropped_screenshot_2c217dd665444ed0b2c569a9336f0315_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>17.</strong> Click My Leagues.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="My Leagues tab" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/147fc4fa-1de5-4d79-bc3e-1aa6501febc2/user_cropped_screenshot_f59f236a676e4b6b9f415f99d4bac210_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>18.</strong> Click the League.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="Selecting the ARA League" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/45f2b2e8-9630-44a9-9fcf-60dae3ae1f6e/user_cropped_screenshot_9591bd826e8b457486f6d7233cfbbbd4_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>19.</strong> Click Sessions.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="Sessions tab on league page" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/e1f90d63-1c88-42ea-a06c-2310592a32ae/user_cropped_screenshot_48eb4c6ff1a74f2fba367f00ef4f0370_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>20.</strong> Click View Session on your correct Split Session. <a href="#split-race">Reference Steps 14 and 15</a> to confirm your split.</p>
+  </div>
+  <div class="ara-guide__screenshot">
+    <img width="560" alt="View Session on correct split" src="https://colony-recorder.s3.amazonaws.com/files/2025-12-10/7de18706-d1ea-408f-af0a-49dd8515b4de/user_cropped_screenshot_32f24f1e815647789540d1808fdb9109_text_export.jpeg" />
+  </div>
+
+  <div class="ara-guide__step">
+    <p class="ara-guide__step-text"><strong>21.</strong> Register before Qualifying. There is a 1 hour practice session when the event starts.</p>
+  </div>
+
+  <div class="ara-guide__tip">
+    <div class="ara-guide__tip-label">Troubleshooting — Session Not Showing Up</div>
+    <p>If you try to join right when the session starts, it may not appear immediately in the iRacing UI.</p>
+    <p>Wait 1–2 minutes after the official start time, then refresh the iRacing UI and check again.</p>
+  </div>
+
+  <div class="ara-guide__alert">
+    <div class="ara-guide__alert-label">Warning</div>
+    <p>If you join the wrong split during race day, you will be <strong>disqualified</strong> from the race and score no points.</p>
+    <p>Joining the wrong split may cause another driver not to be able to participate because your entry removed that slot for them.</p>
+  </div>
+
+</div>
